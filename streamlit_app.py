@@ -8,20 +8,28 @@ st.set_page_config(
     layout="wide",
 )
 
-st.set_page_config(
-    page_title="Dashboard LDA – Opini Publik MBG",
-    page_icon="📊",
-    layout="wide",
-)
+
 
 st.markdown("""
     <style>
-        /* Background utama */
         .stApp {
-            background-color: #CFD7E3;  
+            background-color: #FFFFFF;
         }
 
         
+        .stApp * {
+            color: #1A1A2E !important;  /* ganti warna font di sini */
+        }
+
+        /* Khusus judul h1, h2, h3 */
+        h1, h2, h3 {
+            color: #0D47A1 !important;
+        }
+
+        /* Khusus teks paragraf biasa */
+        p {
+            color: #333333 !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
