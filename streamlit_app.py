@@ -2,15 +2,13 @@ import streamlit as st
 import streamlit.components.v1 as components
 import os
 
-# ── Page Config ────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Dashboard LDA – Opini Publik MBG",
+    page_title="Dashboard LDA [Opini Publik MBG]",
     page_icon="📊",
     layout="wide",
 )
 
-# ── Header ─────────────────────────────────────────────────────────────────────
-st.title("📊 Analisis Opini Publik: Program Makan Bergizi Gratis (MBG)")
+st.title("Analisis Opini Publik: Program Makan Bergizi Gratis (MBG)")
 st.markdown(
     """
     | Info | Detail |
@@ -18,19 +16,17 @@ st.markdown(
     | **Mata Kuliah** | Analisis Data Tak Terstruktur |
     | **Metode** | Text Mining + Topic Modeling (LDA) |
     | **Dataset** | 500 tweet terkait Program MBG |
-    | **Periode Data** | 7–9 Mei 2026 |
     """
 )
 st.divider()
 
-# ── Tabs ────────────────────────────────────────────────────────────────────────
-tab1, tab2 = st.tabs(["🔍 Visualisasi LDA Interaktif", "ℹ️ Tentang Dashboard"])
+tab1, tab2 = st.tabs(["Visualisasi LDA Interaktif", "Detail Dashboard"])
 
 with tab1:
-    st.subheader("Visualisasi Interaktif pyLDAvis")
+    st.subheader("Visualisasi Interaktif Hasil LDA")
     st.markdown(
         """
-        > **Cara membaca pyLDAvis:**
+        > **Petunjuk Membaca Visualisasi:**
         > - **Lingkaran besar** di kiri = topik; ukurannya menunjukkan proporsi topik dalam corpus.
         > - **Jarak antar lingkaran** = kemiripan antar topik (semakin jauh, semakin berbeda).
         > - **Bar chart** di kanan = kata-kata paling relevan untuk topik yang dipilih.
@@ -38,7 +34,6 @@ with tab1:
         """
     )
 
-    # Load HTML file
     html_path = os.path.join(os.path.dirname(__file__), "lda_visualization_interactive.html")
 
     if os.path.exists(html_path):
@@ -52,7 +47,7 @@ with tab1:
         )
 
 with tab2:
-    st.subheader("Tentang Dashboard Ini")
+    st.subheader("Detail Dashboard")
     st.markdown(
         """
         Dashboard ini menampilkan hasil **Topic Modeling** menggunakan metode
@@ -60,14 +55,13 @@ with tab2:
         yang membahas Program Makan Bergizi Gratis (MBG).
 
         ### Preprocessing yang dilakukan:
-        1. **Text Cleaning** – hapus URL, mention, hashtag, karakter non-alfabet
-        2. **Tokenization** – memecah teks menjadi token
-        3. **Stopwords Removal** – stopwords Bahasa Indonesia + informal + domain-spesifik
-        4. **Stemming** – menggunakan PySastrawi
+        1. **Text Cleaning** 
+        2. **Tokenization** 
+        3. **Stopwords Removal** 
+        4. **Stemming** 
 
         ### Model LDA:
         - Library: `gensim`
-        - Visualisasi: `pyLDAvis`
         - Jumlah topik optimal dipilih berdasarkan **Coherence Score**
 
         ### Topik yang teridentifikasi (6 topik):
