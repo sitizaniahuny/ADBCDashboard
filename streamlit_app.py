@@ -8,6 +8,23 @@ st.set_page_config(
     layout="wide",
 )
 
+st.set_page_config(
+    page_title="Dashboard LDA – Opini Publik MBG",
+    page_icon="📊",
+    layout="wide",
+)
+
+st.markdown("""
+    <style>
+        /* Background utama */
+        .stApp {
+            background-color: #CFD7E3;  
+        }
+
+        
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("Analisis Opini Publik: Program Makan Bergizi Gratis (MBG)")
 st.markdown(
     """
